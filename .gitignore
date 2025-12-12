@@ -1,0 +1,42 @@
+# Python / Ambiente Virtual
+#########################
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+*.pylintrc
+.venv/
+venv/
+env/
+pip-log.txt
+
+# Banco de Dados
+###############
+db.sqlite3
+*.sqlite3
+
+# Arquivos de Sistema Operacional
+################################
+.DS_Store # macOS
+*~ # Linux/Unix
+Thumbs.db # Windows
+
+# Django / Configurações Secretas
+#################################
+# Arquivos de configurações locais com senhas/chaves
+local_settings.py
+
+# Arquivos de mídia e estáticos gerados (se forem muitos)
+/media
+/static_collected
+
+# Logs
+/logs
+*.log
+
+# Arquivos de Teste e Cobertura
+################################
+.coverage
+htmlcov/
+.nox/
+.tox/
