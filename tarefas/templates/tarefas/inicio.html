@@ -8,6 +8,11 @@
 
     <h2>Informe seu nome abaixo</h2>
 
-    
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="nome" placeholder="Digite seu nome">
+        <input type="submit" value="Enviar">
+    </form>
+
 
 {% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'tarefas/base.html' %}
+
+{% block titulo %}Visualizando{% endblock %}
+
+{% block corpo %}
+
+{% if tarefas %}
+    {% for tarefa in tarefas %}
+        <ol>
+            <a href="{% url 'tarefa' tarefa.id %}">{{ tarefa.titulo }}</a> - 
+            <strong>
+                {% if tarefa.concluida %}
+                    (Concluida)
+                {% else %}
+                    (A concluir)
+                {% endif %}
+
+            </strong>
+        </ol>
+    {% endfor %}
+{% else %}
+Nenhuma tarefa cadastrada
+{% endif %}
+
+{% endblock %}

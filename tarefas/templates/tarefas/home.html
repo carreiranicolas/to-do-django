@@ -3,5 +3,10 @@
 {% block titulo %}Home{% endblock %}
 
 {% block corpo %}
-    <h1>~/Olá, Fulano</h1>
+    <h1>~/Olá, {{nome}}</h1>
+
+    <p>O que deseja fazer?</p>
+
+    <a href="{% url 'adicionar' %}">Cadastrar Tarefa</a>
+    <a href="{% url 'visualizar' %}">Ver tarefas cadastradas</a>
 {% endblock %}
