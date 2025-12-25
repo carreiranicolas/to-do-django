@@ -1,0 +1,27 @@
+{% extends 'tarefas/base.html' %}
+
+{% block titulo %}Editar{% endblock %}
+
+{% block corpo %}
+
+    <h2>Escolha a tarefa que deseja editar</h2>
+
+    {% if tarefas %}
+
+        {% for tarefa in tarefas %}
+
+            <ol>
+
+                <a href="{% url 'editar_tarefa' tarefa.id %}">{{tarefa.titulo}}</a>
+
+            </ol>
+
+        {% endfor %}
+    
+    {% else %}
+
+        <p>Nenhuma tarefa para editar</p>
+
+    {% endif %}
+
+{% endblock %}

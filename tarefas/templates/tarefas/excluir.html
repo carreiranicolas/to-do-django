@@ -1,0 +1,26 @@
+{% extends 'tarefas/base.html' %}
+
+{% block titulo %}Excluir{% endblock %}
+
+
+{% block corpo %}
+
+    <h2>Escolha a tarefa que deseja excluir</h2>
+
+    {% if tarefas %}
+        
+        {% for tarefa in tarefas %}
+
+            <ol>
+
+                <a href="{% url 'excluir_tarefa' tarefa.id %}">{{tarefa.titulo}}</a>
+
+            </ol>
+    
+        {% endfor %}
+
+    {% else %}
+        <p>Nenhuma tarefa para excluir</p>
+    {% endif %}
+
+{% endblock %}

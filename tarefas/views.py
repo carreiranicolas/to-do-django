@@ -32,9 +32,9 @@ def adicionar(request):
             tarefa.save()
             return redirect("home")
         
-    else:
-        form = TarefaForms
-        return render(request, 'tarefas/adicionar.html', {'form': form})
+    
+    form = TarefaForms
+    return render(request, 'tarefas/adicionar.html', {'form': form})
     
 
 def visualizar(request):
@@ -44,5 +44,44 @@ def visualizar(request):
 def tarefa(request, id):
     tarefa = get_object_or_404(Tarefa, id=id)
     return render(request, 'tarefas/tarefa.html', {'tarefa': tarefa})
+
+
+def excluir(request):
+    lista = Tarefa.objects.all()
+
+    return render(request, 'tarefas/excluir.html', {'tarefas': lista})
+
+def excluir_tarefa(request, id):
+    tarefa = get_object_or_404(Tarefa, id=id)
+
+    if request.method == 'POST':
+        tarefa.delete()
+        return redirect('home')
+    
+    return render(request, 'tarefas/excluir_tarefa.html', {'tarefa': tarefa})
+
+
+def editar(request):
+    lista = Tarefa.objects.all()
+
+    return render(request, 'tarefas/editar.html', {'tarefas': lista})
+
+
+def editar_tarefa(request, id):
+    tarefa = get_object_or_404(Tarefa, id=id)
+
+    if request.method == 'POST':
+        form = TarefaForms(request.POST, instance=tarefa)
+
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        
+    form = TarefaForms(instance=tarefa)
+
+    return render(request, 'tarefas/editar_tarefa.html', {'form': form})
+
+
+
 
 
