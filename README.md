@@ -37,19 +37,27 @@ cd seu-repositorio
 
 ### 2️⃣ Criar e ativar o ambiente virtual
 
+```bash
 python -m venv venv
 source venv/bin/activate  # Linux / Mac
 venv\Scripts\activate     # Windows
+```
 
 ### 3️⃣ Instalar as dependências
 
+```bash
 pip install django
+```
 
 ### 4️⃣ Aplicar as migrações
 
+```bash
 python manage.py migrate
+```
 
 ### 5️⃣ Rodar o servidor
 
+```bash
 python manage.py runserver
+```
 
